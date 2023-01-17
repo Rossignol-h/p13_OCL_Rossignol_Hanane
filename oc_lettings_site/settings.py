@@ -1,5 +1,8 @@
 import os
 
+import sentry_sdk  # pip install sentry-sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+
 from dotenv import load_dotenv
 dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
 load_dotenv(dotenv_path)  # loads the configs from .env
@@ -118,3 +121,19 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 # pip install whitenoise
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+sentry_sdk.init(
+    dsn=os.getenv('SENTRY_DSN'),
+    integrations=[
+        DjangoIntegration(),
+    ],
+
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    # We recommend adjusting this value in production.
+    traces_sample_rate=1.0,
+
+    # If you wish to associate users to errors (assuming you are using
+    # django.contrib.auth) you may enable sending PII data.
+    send_default_pii=True
+)
