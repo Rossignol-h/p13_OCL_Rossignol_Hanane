@@ -7,6 +7,8 @@ ENV PYTHONDONTWRITEBYTECODE 1
 #  For Python output is logged to the terminal, for monitor Django logs in realtime.
 ENV PYTHONUNBUFFERED 1
 
+ENV PORT=8000
+
 # Create a working directory.
 WORKDIR /app
 
