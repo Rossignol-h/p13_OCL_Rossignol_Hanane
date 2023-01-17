@@ -1,0 +1,11 @@
+__pycache__
+.env
+venv
+.pytest_cache
+.idea
+.git
+
+env/
+data/
+flake-report/
+.flake8

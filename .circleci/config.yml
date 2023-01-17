@@ -21,8 +21,39 @@ jobs:
           name: Testing
           command: pytest
 
+# ================================== SECOND JOB BUILD & PUSH DOCKER IMAGE TO DOCKER HUB
+
+  build-docker-image: 
+    executor: python/default
+    resource_class: medium
+    steps:
+      # 1. Login to DockerHub
+      # 2. Build the image
+      # 3. Tag it with hash circle ci ($CIRCLE_SHA1)
+      # 4. Push the Docker image to the registry
+      - checkout
+      - setup_remote_docker: # This create a new remote Docker environment 
+          docker_layer_caching: true
+      - run:
+          name: build and deploy to dockerhub
+          command: |
+            echo $DOCKERHUB_TOKEN | docker login --username $DOCKERHUB_USER --password-stdin
+            docker build -t $IMAGE_NAME .
+            docker tag $IMAGE_NAME:latest $DOCKERHUB_USER/$IMAGE_NAME:$CIRCLE_SHA1
+            docker push $DOCKERHUB_USER/$IMAGE_NAME:$CIRCLE_SHA1
+
+# ===================================================== WORKFLOWS DEFINES THE ORDER'S RUNNING JOBS AND THEIR OPTIONS
+
 workflows:
   mainflow:
     jobs:
       - install-and-test
-
+      - build-docker-image:
+          context:
+            - oc-lettings
+          requires:
+            - install-and-test # only runs this job if the install-and-test job is completed
+          filters:
+            branches:
+              only:
+                - main # only runs this job if push on main branch
