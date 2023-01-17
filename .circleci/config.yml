@@ -1,0 +1,28 @@
+version: 2.1
+
+orbs: 
+  python: circleci/python@2.1.1
+
+jobs:
+# ===================================================== FIRST JOB CREATE & ACTIVATE ENV THEN INSTALL ALL DEPENDENCIES
+
+  install-and-test:
+    executor: python/default
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: pip
+
+      - run:
+          name: Linting
+          command: flake8
+
+      - run:
+          name: Testing
+          command: pytest
+
+workflows:
+  mainflow:
+    jobs:
+      - install-and-test
+
