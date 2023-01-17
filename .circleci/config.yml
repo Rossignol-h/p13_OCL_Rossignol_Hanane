@@ -42,6 +42,25 @@ jobs:
             docker tag $IMAGE_NAME:latest $DOCKERHUB_USER/$IMAGE_NAME:$CIRCLE_SHA1
             docker push $DOCKERHUB_USER/$IMAGE_NAME:$CIRCLE_SHA1
 
+# ================================== THIRD JOB DEPLOY TO HEROKU
+
+  deploy-to-heroku:
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: Build and push Docker image to Heroku
+          # 1. Install Heroku CLI on the build machine
+          # 2. Login to Heroku registry passing our Heroku API Key as a parameter
+          #    to don’t need to authenticate with the Heroku login command. 
+          # 3. Building and pushing our docker image to Heroku registry
+          # 4. Releasing the new version of our app
+          command: |
+            sudo curl https://cli-assets.heroku.com/install.sh | sh
+            HEROKU_API_KEY=$HEROKU_API_KEY heroku container:login
+            HEROKU_API_KEY=$HEROKU_API_KEY heroku container:push -a $HEROKU_APP_NAME web
+            HEROKU_API_KEY=$HEROKU_API_KEY heroku container:release -a $HEROKU_APP_NAME web
+
 # ===================================================== WORKFLOWS DEFINES THE ORDER'S RUNNING JOBS AND THEIR OPTIONS
 
 workflows:
@@ -57,3 +76,11 @@ workflows:
             branches:
               only:
                 - main # only runs this job if push on main branch
+      - deploy-to-heroku:
+          context:
+            - oc-lettings
+          requires:
+            - build-docker-image
+          filters:
+            branches:
+              only: main
