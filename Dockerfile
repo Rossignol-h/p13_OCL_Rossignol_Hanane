@@ -25,5 +25,8 @@ COPY . /app/
 # # Port the container will be executed on.
 EXPOSE 8000
 
-# Final command should run, when this container is launched.
-CMD python manage.py runserver 0.0.0.0:8000
+# Command should run, when this container is launched.
+# gunicorn is HTTP server recommended by Heroku
+# provides a perfect balance of performance, flexibility, and configuration simplicity
+# https://devcenter.heroku.com/articles/python-gunicorn
+CMD gunicorn oc_lettings_site.wsgi:application --bind 0.0.0.0:$PORT
