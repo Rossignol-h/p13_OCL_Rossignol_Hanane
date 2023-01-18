@@ -130,12 +130,12 @@ Ajouter les variables d'environnement suivantes dans ( settings/conf Vars):
 | Clé                   | Valeur                              |
 |-----------------------|-------------------------------------|
 | DEBUG                 | False                               |
-| SENTRY_DSN            | DSN de votre projet Sentry          |
+| SENTRY_DSN            | DSN de votre projet Sentry (sans les guillemets)         |
 | SECRET_KEY            | Clé secrète de l'application Django |
-
-- Dans les settings de votre compte, 
+<br>
+- Dans les settings de votre compte, <br>
+lien: https://dashboard.heroku.com/account
 - Copier votre API KEY et réservé la pour la suite.
-  lien: https://dashboard.heroku.com/account
 
 
 ***
