@@ -95,7 +95,7 @@ Le déploiement de cette application utilise la méthodologie CI/CD avec CircleC
 ***
 ### Etape 1 GITHUB :
 ***
-Cloner le projet afin de pouvoir le lier à CircleCi
+Clonez le projet afin de pouvoir le lier à CircleCi
 ```bash
 git clone https://github.com/Rossignol-h/p13_OCL_Rossignol_Hanane.git
 ```
@@ -108,12 +108,12 @@ git clone https://github.com/Rossignol-h/p13_OCL_Rossignol_Hanane.git
 La surveillance de l’application et le suivi des erreurs se fera via sentry.
 
 - Connecter vous à votre compte https://sentry.io/auth/login/
-- Cliquer sur "create project" en haut à droite
+- Cliquez sur "create project" en haut à droite
 - Choisissez la plateforme "Django"
-- Nommer le et confirmez sa création
-- Dans la barre de recherche en haut à droite taper : "DSN"
+- Nommez le et confirmez sa création
+- Dans la barre de recherche en haut à droite tapez : "DSN"
 - Choisissez votre projet
-- Copier votre DSN et réservé le pour la suite.
+- Copiez votre DSN et réservé le pour la suite.
 
 
 ***
@@ -122,10 +122,15 @@ La surveillance de l’application et le suivi des erreurs se fera via sentry.
 
 lien: https://dashboard.heroku.com/apps
 
-Création d'une application dans Heroku nommée:
-- oc-lettings [ *si non disponible ajouter un chiffre (ex: oc-lettings-1)* ]
+Création d'une application :
+- Cliquez sur le bouton "New" en haut à droite.
+- Selectionnez "Create new app".
+- Dans "app name" taper: oc-lettings [ *si non disponible ajouter un chiffre (ex: oc-lettings-1)* ]
+- Dans "Choose a region": selectionner Europe.
+- Confirmez la création de l'app.
+- Redirection automatique vers la nouvelle app.
 
-Ajouter les variables d'environnement suivantes dans ( settings/conf Vars):
+Dans la section Settings puis config Vars, ajouter les variables d'environnement suivantes :
 
 | Clé                   | Valeur                              |  Exemple |  
 |-----------------------|-------------------------------------|---------------------|
@@ -157,26 +162,26 @@ Une fois sur la page de gestion de votre projet cliquer sur :<br>
 - Organization Settings <br>
 - Contexts <br>
 - Create contexts <br>
-- nommer votre context : oc-lettings<br> 
-- puis ajouter les variables d'environnement ci-dessous 
+- nommer votre context : __oc-lettings__<br> 
+- puis ajouter les variables d'environnement ci-dessous <br>
 
 Variables du context CircleCi :
 
 | Clé               | Valeur                                     | Exemple
-|-------------------|--------------------------------------------|        |
-| DOCKERHUB_USER    | Username de votre DockerHub                | HananeOc      |
-| DOCKERHUB_TOKEN   | Token d'acces de votre DockerHub           | dckr_pat_BSXmP06oTcUpp6L5jKUEgN5j0I3      |
-| IMAGE_NAME        | Nom de l'image de votre projet             | img-ocl       |
-| HEROKU_APP_NAME   | Nom de l'app sur Heroku                    | oc-lettings-2    |
-| HEROKU_API_KEY    | API Key récupérée sur votre compte Heroku  | mv6508i5-q1dc-81bm-l372-s7bx0944v520      |
-| SENTRY_DSN        | DSN de votre projet Sentry                 | https://167df70ea4x8c60dcf92dfdd69ac9@o0502235756711425.ingest.sentry.io/7304502739337205     |
+|-------------------|--------------------------------------------|-------------------------|
+| DOCKERHUB_USER    | Username de votre DockerHub                | HananeOc                |
+| DOCKERHUB_TOKEN   | Token d'acces de votre DockerHub           | dckr_pat_BSXmP06oTcUpp6L5jKUEgN5j0I3 |
+| IMAGE_NAME        | Nom de l'image de votre projet             | img-ocl                 |
+| HEROKU_APP_NAME   | Nom de l'app sur Heroku                    | oc-lettings-2           |
+| HEROKU_API_KEY    | API Key récupérée sur votre compte Heroku  | mv6508i5-q1dc-81bm-l372-s7bx0944v520 |
+| SENTRY_DSN        | DSN de votre projet Sentry                 | https://167df70ea4x8c60dcf92dfdd69ac9@o0502235756711425.ingest.sentry.io/7304502739337205          |
 | SECRET_KEY        | Clé secrète de l'application Django        | c8451ct&*v1@jjj3=r82#c_hqmp7u1vf#69e_#s@e+z=^l_xk6    |
 
 ***
 ### Etape 5 activation du Pipeline:
 ***
 
-Une fois les différents comptes crées et paramétrés:
+Une fois les différents comptes créés et paramétrés:
 - Sur votre IDE 
 - réalisez une modification sur un fichier de l'application de la branche main et poussez cette modification sur le repo Github.<br>
 ```
@@ -186,7 +191,7 @@ git push -u origin main
 ``` 
 <br>
 
-- Aller sur votre sur le pipeline de votre projet sur Circleci
+- Allez sur votre sur le pipeline de votre projet sur Circleci
 - lien : https://app.circleci.com/pipelines/github/[my-github-username]
 - Le workflow s'activera automatiquement, en voici les étapes ci-dessous
 
@@ -222,10 +227,10 @@ __Job 3__ :<br>
 ### Etape 6 HEROKU:
 ***
 - Visiter le lien de déploiement de votre application
-https://[nom-de-votre-app].herokuapp.com
+__https://[nom-de-votre-app].herokuapp.com__
 
 - Le lien vers la page d'administration de Django
-https://[nom-de-votre-app].herokuapp.com/admin
+__https://[nom-de-votre-app].herokuapp.com/admin__
 
 
 ***
@@ -239,8 +244,8 @@ https://[nom-de-votre-app].herokuapp.com/sentry-debug/
 - Pour afficher et résoudre l'erreur enregistrée: 
 - Connectez-vous à [sentry.io](https://sentry.io)
 - Ouvrez votre projet.<br>
-- Cliquer sur le titre de l'erreur : ZeroDivisionError
-- Une page s'ouvrira, vous pourrez voir des informations détaillées et indiquer sa résolution.
+- Cliquez sur le titre de l'erreur : ZeroDivisionError
+- Une page s'ouvrira, vous pourrez voir les informations détaillées et indiquer sa résolution.
 
 ***
 ## Co-Auteur
