@@ -127,11 +127,11 @@ Création d'une application dans Heroku nommée:
 
 Ajouter les variables d'environnement suivantes dans ( settings/conf Vars):
 
-| Clé                   | Valeur                              |
-|-----------------------|-------------------------------------|
-| DEBUG                 | False                               |
-| SENTRY_DSN            | DSN de votre projet Sentry (sans les guillemets)         |
-| SECRET_KEY            | Clé secrète de l'application Django |
+| Clé                   | Valeur                              |  Exemple |  
+|-----------------------|-------------------------------------|---------------------|
+| DEBUG                 | False                               |                     |
+| SENTRY_DSN            | DSN de votre projet Sentry (! sans les guillemets)| https://167df70ea4x8c60dcf92dfdd69ac9@o0502235756711425.ingest.sentry.io/7304502739337205|
+| SECRET_KEY            | Clé secrète de l'application Django | c8451ct&*v1@jjj3=r82#c_hqmp7u1vf#69e_#s@e+z=^l_xk6|
 <br>
 - Dans les settings de votre compte, <br>
 lien: https://dashboard.heroku.com/account
@@ -150,7 +150,7 @@ Une fois connecté à votre compte CircleCI __avec votre compte github__ :
 - Connectez vous sur le repo du projet en cliquant sur "Set Up Project".
 - Le projet possédant déjà un fichier de configuration dans ".circleci/config.yml". 
 - il vous sera alors demandé si vous souhaitez l'utiliser.<br>
-Confirmez son utilisation.
+- Confirmez son utilisation.
 - Ajouter "main" dans la branche demandée.
 
 Une fois sur la page de gestion de votre projet cliquer sur :<br>
@@ -162,15 +162,15 @@ Une fois sur la page de gestion de votre projet cliquer sur :<br>
 
 Variables du context CircleCi :
 
-| Clé               | Valeur                                     |
-|-------------------|--------------------------------------------|
-| DOCKERHUB_USER    | Username de votre DockerHub                |
-| DOCKERHUB_TOKEN   | Token d'acces de votre DockerHub           |
-| IMAGE_NAME        | Nom de l'image de votre projet             |
-| HEROKU_APP_NAME   | Nom de l'app sur Heroku                    |
-| HEROKU_API_KEY    | API Key récupérée sur votre compte Heroku  |
-| SENTRY_DSN        | DSN de votre projet Sentry                 |
-| SECRET_KEY        | Clé secrète de l'application Django        |
+| Clé               | Valeur                                     | Exemple
+|-------------------|--------------------------------------------|        |
+| DOCKERHUB_USER    | Username de votre DockerHub                | HananeOc      |
+| DOCKERHUB_TOKEN   | Token d'acces de votre DockerHub           | dckr_pat_BSXmP06oTcUpp6L5jKUEgN5j0I3      |
+| IMAGE_NAME        | Nom de l'image de votre projet             | img-ocl       |
+| HEROKU_APP_NAME   | Nom de l'app sur Heroku                    | oc-lettings-2    |
+| HEROKU_API_KEY    | API Key récupérée sur votre compte Heroku  | mv6508i5-q1dc-81bm-l372-s7bx0944v520      |
+| SENTRY_DSN        | DSN de votre projet Sentry                 | https://167df70ea4x8c60dcf92dfdd69ac9@o0502235756711425.ingest.sentry.io/7304502739337205     |
+| SECRET_KEY        | Clé secrète de l'application Django        | c8451ct&*v1@jjj3=r82#c_hqmp7u1vf#69e_#s@e+z=^l_xk6    |
 
 ***
 ### Etape 5 activation du Pipeline:
