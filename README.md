@@ -78,7 +78,7 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 
 ***
 ## Déploiement
-***
+
 Introduction :
 
 Lors de l'envoi d'un commit sur la branche "main" du projet présent sur Github, CircleCI (lui même lié au repository) va déclencher plusieurs processus automatiquement :
@@ -143,22 +143,23 @@ Ajouter les variables d'environnement suivantes dans ( settings/conf Vars):
 ### Etape 4 configuration de CircleCi :
 ***
 
-lien: https://circleci.com/docs/
+lien de connexion : https://circleci.com/vcs-authorize/
 
-Une fois connecté à votre compte CircleCI avec votre compte github,
-dans le menu "projets" tous vos repo github seront listés
-connectez vous sur le repository du projet en cliquant sur "Set Up Project".
-Le projet possédant déjà un fichier de configuration dans ".circleci/config.yml" 
-il vous sera alors demandé si vous souhaitez l'utiliser.<br>
+Une fois connecté à votre compte CircleCI __avec votre compte github__ :
+
+- Dans le menu "projets" tous vos repo github seront listés.
+- Connectez vous sur le repo du projet en cliquant sur "Set Up Project".
+- Le projet possédant déjà un fichier de configuration dans ".circleci/config.yml". 
+- il vous sera alors demandé si vous souhaitez l'utiliser.<br>
 Confirmez son utilisation.
+- Ajouter "main" dans la branche demandée.
 
-Une fois sur la page de gestion de votre projet sur CircleCI,
-cliquer sur :<br><br>
-=> Organization Settings <br>
-=> Contexts <br>
-=> Create contexts <br>
-=> nommer votre context : oc-lettings<br> 
-=> puis ajouter les variables d'environnement ci-dessous 
+Une fois sur la page de gestion de votre projet cliquer sur :<br><br>
+- Organization Settings <br>
+- Contexts <br>
+- Create contexts <br>
+- nommer votre context : oc-lettings<br> 
+- puis ajouter les variables d'environnement ci-dessous 
 
 Variables du context CircleCi :
 
@@ -187,6 +188,7 @@ git push -u origin main
 <br>
 
 - Aller sur votre sur le pipeline de votre projet sur Circleci
+- lien : https://app.circleci.com/pipelines/github/[my-github-username]
 - Le workflow s'activera automatiquement, en voici les étapes ci-dessous
 
 __Job 1__ :<br>
@@ -214,17 +216,17 @@ __Job 3__ :<br>
 - Déploiement de la nouvelle version de l'application
 
 #### *Note:*<br>
-#### *Si vous faites un push sur une autre branche que "main"*<br>
+#### *Si vous faites un push sur une autre branche que "main"*
 #### *seul le job 1 (install-and-test) sera activé dans le workflow du pipeline*
 
 ***
 ### Etape 6 HEROKU:
 ***
 - Visiter le lien de déploiement de votre application
-https://oc-lettings-2.herokuapp.com
+https://[nom-de-votre-app].herokuapp.com
 
 - Le lien vers la page d'administration de Django
-https://oc-lettings-2.herokuapp.com/admin/login/?next=/admin/
+https://[nom-de-votre-app].herokuapp.com/admin
 
 
 ***
@@ -233,16 +235,16 @@ https://oc-lettings-2.herokuapp.com/admin/login/?next=/admin/
 
 - Générez une erreur "ZeroDivisionError" dans sentry.
 en allant sur votre application déployée via ce lien:
-https://oc-lettings-2.herokuapp.com/sentry-debug/
+https://[nom-de-votre-app].herokuapp.com/sentry-debug/
 
 - Pour afficher et résoudre l'erreur enregistrée: 
 - Connectez-vous à [sentry.io](https://sentry.io)
 - Ouvrez votre projet.<br>
-- Cliquer sur le titre de l'erreur
+- Cliquer sur le titre de l'erreur : ZeroDivisionError
 - Une page s'ouvrira, vous pourrez voir des informations détaillées et indiquer sa résolution.
 
 ***
 ## Co-Auteur
-***
+
 - Rossignol Hanane 
 - Github Profile :octocat: [@Rossignol-h](https://github.com/Rossignol-h)
