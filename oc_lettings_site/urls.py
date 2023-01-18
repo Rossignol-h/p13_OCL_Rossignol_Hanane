@@ -3,6 +3,7 @@ from django.urls import path, include
 
 from . import views
 
+
 # function for Sentry
 def trigger_error(request):
     division_by_zero = 1 / 0
