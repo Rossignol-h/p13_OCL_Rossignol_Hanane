@@ -79,12 +79,7 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 ***
 ## Déploiement
 
-Introduction :
-
-Lors de l'envoi d'un commit sur la branche "main" du projet présent sur Github, CircleCI (lui même lié au repository) va déclencher plusieurs processus automatiquement :
-1. Réalisations des tests pour vérifier le fonctionnement du code.
-2. Si la première étape est un succès, alors l'étape de construction de l'image de l'application démarre et sera envoyer sur DockerHub.
-3. Si la première étape est un succès, l'application sera envoyée sur Heroku pour effectuer son déploiement.
+Le déploiement de cette application utilise la méthodologie CI/CD avec CircleCI
 
 
 ***
@@ -98,7 +93,7 @@ Lors de l'envoi d'un commit sur la branche "main" du projet présent sur Github,
 - Un Compte Sentry
 
 ***
-### Etape 1 Github:
+### Etape 1 GITHUB :
 ***
 Cloner le projet afin de pouvoir le lier à CircleCi
 ```bash
@@ -116,7 +111,7 @@ La surveillance de l’application et le suivi des erreurs se fera via sentry.
 - Cliquer sur "create project" en haut à droite
 - Choisissez la plateforme "Django"
 - Nommer le et confirmez sa création
-- Dans la barre de recherche en haut à droite taper: DSN
+- Dans la barre de recherche en haut à droite taper : "DSN"
 - Choisissez votre projet
 - Copier votre DSN et réservé le pour la suite.
 
@@ -138,6 +133,10 @@ Ajouter les variables d'environnement suivantes dans ( settings/conf Vars):
 | SENTRY_DSN            | DSN de votre projet Sentry          |
 | SECRET_KEY            | Clé secrète de l'application Django |
 
+- Dans les settings de votre compte, 
+- Copier votre API KEY et réservé la pour la suite.
+  lien: https://dashboard.heroku.com/account
+
 
 ***
 ### Etape 4 configuration de CircleCi :
@@ -154,7 +153,7 @@ Une fois connecté à votre compte CircleCI __avec votre compte github__ :
 Confirmez son utilisation.
 - Ajouter "main" dans la branche demandée.
 
-Une fois sur la page de gestion de votre projet cliquer sur :<br><br>
+Une fois sur la page de gestion de votre projet cliquer sur :<br>
 - Organization Settings <br>
 - Contexts <br>
 - Create contexts <br>
