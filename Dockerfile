@@ -22,7 +22,7 @@ RUN pip install -r requirements.txt
 # Copy source code into the working directory.
 COPY . /app/
 
-# # Port the container will be executed on.
+# Port the container will be executed on.
 EXPOSE 8000
 
 # Command should run, when this container is launched.

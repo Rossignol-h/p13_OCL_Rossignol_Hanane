@@ -111,9 +111,9 @@ La surveillance de l’application et le suivi des erreurs se fera via sentry.
 - Cliquez sur "create project" en haut à droite
 - Choisissez la plateforme "Django"
 - Nommez le et confirmez sa création
-- Dans la barre de recherche en haut à droite tapez : "DSN"
+- Dans la barre de recherche en haut à droite tapez : "__DSN__"
 - Choisissez votre projet
-- Copiez votre DSN et réservé le pour la suite.
+- Copiez votre __DSN__ et réservé le pour la suite.
 
 
 ***
@@ -123,14 +123,14 @@ La surveillance de l’application et le suivi des erreurs se fera via sentry.
 lien: https://dashboard.heroku.com/apps
 
 Création d'une application :
-- Cliquez sur le bouton "New" en haut à droite.
-- Selectionnez "Create new app".
-- Dans "app name" taper: oc-lettings [ *si non disponible ajouter un chiffre (ex: oc-lettings-1)* ]
-- Dans "Choose a region": selectionner Europe.
+- Cliquez sur le bouton "__New__" en haut à droite.
+- Selectionnez "__Create new app__".
+- Dans "app name" taper: __oc-lettings__ [ *si non disponible ajouter un chiffre (ex: oc-lettings-1)* ]
+- Dans "Choose a region": selectionner __Europe__.
 - Confirmez la création de l'app.
 - Redirection automatique vers la nouvelle app.
 
-Dans la section Settings puis config Vars, ajouter les variables d'environnement suivantes :
+Dans la section Settings puis __config Vars__, ajouter les variables d'environnement suivantes :
 
 | Clé                   | Valeur                              |  Exemple |  
 |-----------------------|-------------------------------------|---------------------|
@@ -139,8 +139,8 @@ Dans la section Settings puis config Vars, ajouter les variables d'environnement
 | SECRET_KEY            | Clé secrète de l'application Django | c8451ct&*v1@jjj3=r82#c_hqmp7u1vf#69e_#s@e+z=^l_xk6|
 <br>
 - Dans les settings de votre compte, <br>
-lien: https://dashboard.heroku.com/account
-- Copier votre API KEY et réservé la pour la suite.
+lien: https://dashboard.heroku.com/account <br>
+- Copiez votre API KEY et réservé la pour la suite.
 
 
 ***
@@ -149,23 +149,23 @@ lien: https://dashboard.heroku.com/account
 
 lien de connexion : https://circleci.com/vcs-authorize/
 
-Une fois connecté à votre compte CircleCI __avec votre compte github__ :
+#### Une fois connecté à votre compte CircleCI __avec votre compte github__ :
 
-- Dans le menu "projets" tous vos repo github seront listés.
-- Connectez vous sur le repo du projet en cliquant sur "Set Up Project".
+- Dans le menu "projects" tous vos repo github seront listés.
+- Connectez vous sur le repo du projet en cliquant sur "__Set Up Project__".
 - Le projet possédant déjà un fichier de configuration dans ".circleci/config.yml". 
 - il vous sera alors demandé si vous souhaitez l'utiliser.<br>
 - Confirmez son utilisation.
-- Ajouter "main" dans la branche demandée.
+- Ajoutez "__main__" dans la branche demandée.
 
-Une fois sur la page de gestion de votre projet cliquer sur :<br>
+#### Une fois sur la page de gestion de votre projet cliquez sur :<br>
 - Organization Settings <br>
 - Contexts <br>
 - Create contexts <br>
-- nommer votre context : __oc-lettings__<br> 
-- puis ajouter les variables d'environnement ci-dessous <br>
+- nommez votre context : __oc-lettings__<br> 
+- puis ajoutez les variables d'environnement ci-dessous <br>
 
-Variables du context CircleCi :
+#### Variables du context CircleCi :
 
 | Clé               | Valeur                                     | Exemple
 |-------------------|--------------------------------------------|-------------------------|
@@ -181,7 +181,7 @@ Variables du context CircleCi :
 ### Etape 5 activation du Pipeline:
 ***
 
-Une fois les différents comptes créés et paramétrés:
+#### Une fois les différents comptes créés et paramétrés:
 - Sur votre IDE 
 - réalisez une modification sur un fichier de l'application de la branche main et poussez cette modification sur le repo Github.<br>
 ```
@@ -226,10 +226,10 @@ __Job 3__ :<br>
 ***
 ### Etape 6 HEROKU:
 ***
-- Visiter le lien de déploiement de votre application
+- Visiter le lien de déploiement de votre application :
 __https://[nom-de-votre-app].herokuapp.com__
 
-- Le lien vers la page d'administration de Django
+- Le lien vers la page d'administration de Django :
 __https://[nom-de-votre-app].herokuapp.com/admin__
 
 
@@ -237,14 +237,14 @@ __https://[nom-de-votre-app].herokuapp.com/admin__
 ### Etape 7 Sentry:
 ***
 
-- Générez une erreur "ZeroDivisionError" dans sentry.
-en allant sur votre application déployée via ce lien:
-https://[nom-de-votre-app].herokuapp.com/sentry-debug/
+- Générez une erreur "ZeroDivisionError" dans Sentry.
+en allant sur votre application déployée via ce lien : <br>
+__https://[nom-de-votre-app].herokuapp.com/sentry-debug/__
 
 - Pour afficher et résoudre l'erreur enregistrée: 
 - Connectez-vous à [sentry.io](https://sentry.io)
 - Ouvrez votre projet.<br>
-- Cliquez sur le titre de l'erreur : ZeroDivisionError
+- Cliquez sur le titre de l'erreur : __ZeroDivisionError__
 - Une page s'ouvrira, vous pourrez voir les informations détaillées et indiquer sa résolution.
 
 ***
