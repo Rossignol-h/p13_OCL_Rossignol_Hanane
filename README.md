@@ -252,4 +252,3 @@ __https://[nom-de-votre-app].herokuapp.com/sentry-debug/__
 
 - Rossignol Hanane 
 - Github Profile :octocat: [@Rossignol-h](https://github.com/Rossignol-h)
-
